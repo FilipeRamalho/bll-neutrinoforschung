@@ -1,0 +1,88 @@
+\documentclass{artifacts/design}
+    %
+    % Einstellungen der Schriftart
+    %
+    \usepackage[T1]{fontenc}
+    \usepackage[light,math]{iwona}
+    
+    % 
+    % Blindtext zum Testen von Textausgaben
+    %
+    \usepackage{blindtext}    
+    \usepackage{titlesec} 
+    \usepackage{cite}
+    \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08emT\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+    
+    % 
+    % Kopfzeile & Fußzeile
+    %
+    \pagestyle{fancy} 
+    \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+    \renewcommand{\sectionmark}[1]{\markright{#1}{}}
+    \usepackage{etoolbox}
+    
+    %
+    % Titelformat
+    %
+    \patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+    \titlespacing{\chapter}{0pt}{0pt}{0pt}
+    \definecolor{gray75}{gray}{0.75}
+    \newcommand{\hsp}{\hspace{20pt}}
+    \titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{document}
+    
+    %
+    % Titelseite
+    %
+    \maketitle
+    
+    %
+    % Vorstellung / Abstrakt
+    %
+    \addcontentsline{toc}{chapter}{Kernthesen}
+    \chead{Kernthesen}
+    \input{chapters/Kernthesen}  
+    \vfill  
+    \pagebreak        
+    \addcontentsline{toc}{chapter}{Arbeitsprozess}
+    \chead{Arbeitsprozess}
+    \input{chapters/Arbeitsprozess}
+    \vfill  
+	\pagebreak
+    
+    %
+    % Inhaltsverzeichnis     
+    \addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
+    %
+    \inhaltverzeichnis 
+    
+    %
+    % Inhalt
+    %
+    \input{chapters/IceCube}    
+    \vfill  
+    \pagebreak   
+    \input{chapters/Neutrinoforschung}    
+    \vfill  
+    \pagebreak     
+    \input{chapters/IceCube_Ziele}    
+    \vfill  
+    \pagebreak     
+    \input{chapters/IceCube_Wissenschafstdiplomatie}    
+    \vfill  
+    \pagebreak      
+    \input{chapters/IceCube_Vergleich}    
+    \vfill  
+    \pagebreak      
+    
+    %
+    % Literaturverzeichnis 
+    \addcontentsline{toc}{chapter}{Literaturverzeichnis}
+    %
+    \bibliography{bibliography}
+    \bibliographystyle{alpha}
+
+    \end{document}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
